@@ -1,0 +1,606 @@
+﻿<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>สมัครพี่ค่าย | ค่ายแสงส่องใจ ครั้งที่ 15</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&family=Chakra+Petch:wght@400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" />
+  <style>
+    :root {
+      --bg:         #eff6ff;
+      --ink:        #0f172a;
+      --accent:     #f97316;
+      --accent2:    #fed7aa;
+      --card:       #ffffff;
+      --border:     #dbeafe;
+      --muted:      #475569;
+      --shadow:     0 4px 24px rgba(10,36,99,.10);
+      --shadow-lg:  0 8px 48px rgba(10,36,99,.16);
+      --radius:     16px;
+      --font:       'Sarabun', sans-serif;
+      --blue-deep:  #0a2463;
+      --blue-mid:   #1e4db7;
+      --blue-bright:#2563eb;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+
+    /* ─── HEADER ─── */
+    .header {
+      background: linear-gradient(135deg, #0a2463 0%, #1e3a8a 45%, #1e4db7 70%, #1d4ed8 100%);
+      color: #fff;
+      padding: 28px 24px 36px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 20%, rgba(249,115,22,0.18) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(37,99,235,0.3) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .header-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+    }
+    .header-logo {
+      width: 84px; height: 84px;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 14px;
+      position: relative; z-index: 1;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+    }
+    .header-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(249,115,22,0.15);
+      border: 1px solid rgba(249,115,22,0.4);
+      color: var(--accent2);
+      padding: 5px 16px; border-radius: 50px;
+      font-size: .78rem; font-weight: 600;
+      margin-bottom: 14px;
+      position: relative; z-index: 1;
+    }
+    .header-badge::before { content: '✦'; color: var(--accent); }
+    .header-title {
+      font-family: 'Prompt', sans-serif;
+      font-size: clamp(1.5rem, 5vw, 2.2rem);
+      font-weight: 700; line-height: 1.2;
+      position: relative; z-index: 1;
+    }
+    .header-title .highlight {
+      background: linear-gradient(135deg, var(--accent), #fbbf24);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .header-sub {
+      font-size: .88rem; color: rgba(255,255,255,0.70);
+      margin-top: 6px; position: relative; z-index: 1;
+    }
+    .header-info-row {
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      margin-top: 16px; position: relative; z-index: 1; flex-wrap: wrap;
+    }
+    .header-info-pill {
+      display: flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 10px; padding: 6px 14px;
+      font-size: .80rem; color: rgba(255,255,255,0.85);
+    }
+
+    /* ─── CONTAINER ─── */
+    .container { max-width: 680px; margin: 0 auto; padding: 28px 16px 0; }
+
+    /* ─── CARD ─── */
+    .card {
+      background: var(--card); border-radius: var(--radius);
+      box-shadow: var(--shadow); border: 1.5px solid var(--border);
+      padding: 28px 24px; margin-bottom: 18px; transition: box-shadow 0.3s;
+    }
+    .card:hover { box-shadow: var(--shadow-lg); }
+    .card-title {
+      display: flex; align-items: center; gap: 10px;
+      font-family: 'Prompt', sans-serif;
+      font-size: 1.05rem; font-weight: 700; color: var(--blue-deep);
+      margin-bottom: 22px; padding-bottom: 14px;
+      border-bottom: 2px solid var(--border);
+    }
+    .card-icon {
+      width: 36px; height: 36px;
+      background: linear-gradient(135deg, var(--accent), #c2410c);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; flex-shrink: 0;
+    }
+
+    /* ─── FORM ELEMENTS ─── */
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    .form-row.full { grid-template-columns: 1fr; }
+    @media (max-width: 520px) { .form-row { grid-template-columns: 1fr; } }
+
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field label {
+      font-size: .78rem; font-weight: 700; color: var(--muted);
+      letter-spacing: .05em; text-transform: uppercase;
+    }
+    .field label span.req { color: var(--accent); margin-left: 2px; }
+
+    .field input, .field select {
+      font-family: var(--font); font-size: .97rem; color: var(--ink);
+      background: #f8fafc; border: 1.5px solid #e2e8f0;
+      border-radius: 10px; padding: 11px 14px; outline: none;
+      transition: border-color .18s, box-shadow .18s, background .18s;
+      width: 100%; appearance: none;
+    }
+    .field input:focus, .field select:focus {
+      border-color: var(--blue-bright);
+      box-shadow: 0 0 0 3px rgba(37,99,235,.12);
+      background: #fff;
+    }
+    .field input::placeholder { color: #94a3b8; }
+
+    .select-wrap { position: relative; }
+    .select-wrap::after {
+      content: '▾'; position: absolute; right: 13px; top: 50%;
+      transform: translateY(-50%); font-size: .9rem; color: var(--accent);
+      pointer-events: none;
+    }
+
+    .prefix-row { display: grid; grid-template-columns: 140px 1fr; gap: 14px; margin-bottom: 14px; }
+    @media (max-width: 400px) { .prefix-row { grid-template-columns: 1fr; } }
+
+    /* ─── SUBMIT BUTTON ─── */
+    .btn-submit {
+      font-family: var(--font); font-size: 1.05rem; font-weight: 700;
+      background: linear-gradient(135deg, var(--accent) 0%, #c2410c 100%);
+      color: #fff; border: none; border-radius: 12px; padding: 15px 32px;
+      cursor: pointer; width: 100%; margin-top: 8px;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      transition: opacity .18s, transform .12s, box-shadow .18s;
+      box-shadow: 0 6px 20px rgba(249,115,22,.40); letter-spacing: .04em;
+    }
+    .btn-submit:hover { opacity: .92; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(249,115,22,.50); }
+    .btn-submit:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+
+    /* ─── MODAL ─── */
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(10,36,99,.60);
+      backdrop-filter: blur(6px); z-index: 1000;
+      display: flex; align-items: center; justify-content: center; padding: 20px;
+      opacity: 0; pointer-events: none; transition: opacity .22s;
+    }
+    .modal-overlay.show { opacity: 1; pointer-events: all; }
+    .modal {
+      background: var(--card); border-radius: 20px; padding: 32px 28px;
+      max-width: 440px; width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,.25);
+      transform: scale(.93) translateY(10px);
+      transition: transform .25s cubic-bezier(.34,1.56,.64,1);
+    }
+    .modal-overlay.show .modal { transform: scale(1) translateY(0); }
+    .modal h2 {
+      font-family: 'Prompt', sans-serif; text-align: center;
+      font-size: 1.2rem; font-weight: 700; color: var(--blue-deep); margin-bottom: 6px;
+    }
+    .modal p { text-align: center; font-size: .88rem; color: var(--muted); margin-bottom: 20px; line-height: 1.6; }
+    .modal-summary {
+      background: #f8fafc; border-radius: 12px; padding: 16px 18px;
+      margin-bottom: 22px; font-size: .88rem; line-height: 1.9;
+      border: 1.5px solid var(--border);
+    }
+    .modal-summary strong { color: var(--blue-mid); }
+    .modal-btns { display: flex; gap: 12px; }
+    .btn-cancel, .btn-confirm {
+      font-family: var(--font); flex: 1; padding: 12px;
+      border-radius: 10px; font-size: .95rem; cursor: pointer;
+    }
+    .btn-cancel {
+      border: 1.5px solid #e2e8f0; background: transparent;
+      color: var(--muted); font-weight: 600; transition: background .15s;
+    }
+    .btn-cancel:hover { background: #f1f5f9; }
+    .btn-confirm {
+      background: linear-gradient(135deg, var(--accent), #c2410c);
+      border: none; color: #fff; font-weight: 700; flex: 1.5;
+      box-shadow: 0 4px 14px rgba(249,115,22,.35);
+      transition: transform .15s, box-shadow .15s;
+    }
+    .btn-confirm:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(249,115,22,.45); }
+
+    /* ─── SUCCESS ─── */
+    .success-card {
+      background: var(--card); border-radius: var(--radius);
+      box-shadow: var(--shadow-lg); border: 1.5px solid var(--border);
+      padding: 48px 28px; text-align: center;
+    }
+    .success-icon {
+      width: 80px; height: 80px;
+      background: linear-gradient(135deg, #2E7D32, #4CAF50);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 2.2rem; margin: 0 auto 22px; color: white;
+      box-shadow: 0 6px 24px rgba(46,125,50,.35);
+    }
+    .success-card h2 {
+      font-family: 'Prompt', sans-serif;
+      font-size: 1.4rem; font-weight: 700; color: var(--blue-deep); margin-bottom: 10px;
+    }
+    .success-card p { color: var(--muted); line-height: 1.7; margin-bottom: 4px; }
+    .btn-new {
+      font-family: var(--font);
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-top: 28px; padding: 13px 28px;
+      background: linear-gradient(135deg, var(--blue-deep), var(--blue-mid));
+      color: #fff; border: none; border-radius: 12px;
+      font-weight: 700; cursor: pointer; text-decoration: none; font-size: 1rem;
+      box-shadow: 0 4px 16px rgba(10,36,99,.30);
+      transition: transform .15s, box-shadow .15s;
+    }
+    .btn-new:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(10,36,99,.40); }
+
+    /* ─── SPINNER ─── */
+    .spinner {
+      width: 18px; height: 18px;
+      border: 2.5px solid rgba(255,255,255,.4);
+      border-top-color: #fff; border-radius: 50%;
+      animation: spin .7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .footer {
+      text-align: center; font-size: .78rem; color: var(--muted);
+      margin-top: 36px; padding: 0 16px; line-height: 1.7;
+    }
+    .fade-in { animation: fadeUp .4s ease both; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── LOADING OVERLAY ─── */
+    .loading-overlay {
+      position: fixed; inset: 0; background: rgba(10,36,99,.60);
+      backdrop-filter: blur(6px); z-index: 1000;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: opacity .22s;
+    }
+    .loading-overlay.show { opacity: 1; pointer-events: all; }
+    .loading-content {
+      background: var(--card); border-radius: 20px; padding: 32px 28px;
+      max-width: 440px; width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,.25);
+      text-align: center;
+    }
+    .loading-content .spinner {
+      width: 40px; height: 40px;
+      border: 4px solid rgba(249,115,22,.3);
+      border-top-color: var(--accent); border-radius: 50%;
+      animation: spin .7s linear infinite;
+      margin: 0 auto 16px;
+    }
+    .loading-content p {
+      color: var(--muted); font-size: 1rem; line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-grid"></div>
+  <img class="header-logo" src="https://lh3.googleusercontent.com/d/1BOpRat33iGyGSaThTFRzfkmL2oiYatx3" alt="โลโก้ค่าย" />
+  <div class="header-badge">วิชาเอกสังคมศึกษา คณะศึกษาศาสตร์ มข.</div>
+  <div class="header-title">ค่าย<span class="highlight">แสงส่องใจ</span> ครั้งที่ 15</div>
+  <div class="header-sub">สมัครพี่ค่าย — เปิดรับสมัครแล้ววันนี้</div>
+  <div class="header-info-row">
+    <div class="header-info-pill"><i class="fa-solid fa-calendar"></i> 14–17 สิงหาคม 2569</div>
+    <div class="header-info-pill"><i class="fa-solid fa-map-marker-alt"></i> ร.ร.ประจักษ์ศิลปาคาร จ.อุดรธานี</div>
+    <div class="header-info-pill"><i class="fa-solid fa-coins"></i> 499 บาท</div>
+  </div>
+</header>
+
+<div class="container">
+  <div id="formSection">
+
+    <div class="card fade-in">
+      <div class="card-title">
+        <div class="card-icon" style="color:white"><i class="fa-solid fa-user"></i></div>
+        ข้อมูลส่วนตัว
+      </div>
+
+      <div class="prefix-row">
+        <div class="field">
+          <label>คำนำหน้า <span class="req">*</span></label>
+          <div class="select-wrap">
+            <select id="prefix">
+              <option value="">-- เลือก --</option>
+              <option>นาย</option>
+              <option>นางสาว</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>ชื่อ-นามสกุล <span class="req">*</span></label>
+          <input type="text" id="fullname" placeholder="สมชาย ใจดี" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label>ชื่อเล่น (ไม่เอ้)<span class="req">*</span></label>
+          <input type="text" id="nickname" placeholder="ชื่อเล่น" />
+        </div>
+        <div class="field">
+          <label>เบอร์โทรศัพท์ <span class="req">*</span></label>
+          <input type="tel" id="phone" placeholder="06x-xxxxxxx" maxlength="10" />
+        </div>
+      </div>
+
+      <div class="form-row full">
+        <div class="field">
+          <label>อีเมล <span class="req">*</span></label>
+          <input type="email" id="email" placeholder="example@kkumail.com" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label>ชั้นปี <span class="req">*</span></label>
+          <div class="select-wrap">
+            <select id="year">
+              <option value="">-- เลือก --</option>
+              <option>ปี 1</option>
+              <option>ปี 2</option>
+              <option>ปี 3</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>วิชาเอก <span class="req">*</span></label>
+          <div class="select-wrap">
+            <select id="major">
+              <option value="">-- เลือก --</option>
+              <option>สังคมศึกษา</option>
+              <option>การสอนภาษาไทย</option>
+              <option>ศิลปศึกษา</option>
+              <option>ดนตรีศึกษา</option>
+              <option>วิทยาศาสตร์</option>
+              <option>คณิตศาสตรศึกษา</option>
+              <option>คอมพิวเตอร์ศึกษา</option>
+              <option>การสอนภาษาจีนฯ</option>
+              <option>การสอนภาษาญี่ปุ่น</option>
+              <option>การสอนภาษาอังกฤษฯ</option>
+              <option>พลศึกษา</option>
+              <option>เอกเดี่ยวการประถมศึกษา</option>
+              <option>เอกคู่การประถมศึกษาและปฐมวัย</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card fade-in" style="animation-delay:.08s">
+      <div class="card-title">
+        <div class="card-icon" style="color:white"><i class="fa-solid fa-address-card"></i></div>
+        ฝ่ายที่ประสงค์/ไม่ประสงค์
+      </div>
+
+      <div class="form-row full">
+        <div class="field">
+          <label>ฝ่ายที่ประสงค์ — อันดับ 1 <span class="req">*</span></label>
+          <div class="select-wrap"><select id="dept1">
+            <option value="">-- เลือก --</option>
+            <option>ฝ่ายวิชาการ</option>
+            <option>ฝ่ายกิจกรรมพิเศษและนันทนาการ</option>
+            <option>ฝ่ายเทคโนโลยีและประชาสัมพันธ์</option>
+            <option>ฝ่ายจัดหาทุน</option>
+            <option>ฝ่ายปกครอง</option>
+            <option>ฝ่ายทะเบียน วัดและประเมินผล</option>
+            <option>ฝ่ายประสานงาน</option>
+            <option>ฝ่ายพยาบาล</option>
+            <option>ฝ่ายพิธีการและปฏิคม</option>
+            <option>ฝ่ายสถานที่</option>
+            <option>ฝ่ายสวัสดิการ</option>
+          </select></div>
+        </div>
+      </div>
+      <div class="form-row full">
+        <div class="field">
+          <label>ฝ่ายที่ประสงค์ — อันดับ 2 <span class="req">*</span></label>
+          <div class="select-wrap"><select id="dept2">
+            <option value="">-- เลือก --</option>
+            <option>ฝ่ายวิชาการ</option>
+            <option>ฝ่ายกิจกรรมพิเศษและนันทนาการ</option>
+            <option>ฝ่ายเทคโนโลยีและประชาสัมพันธ์</option>
+            <option>ฝ่ายจัดหาทุน</option>
+            <option>ฝ่ายปกครอง</option>
+            <option>ฝ่ายทะเบียน วัดและประเมินผล</option>
+            <option>ฝ่ายประสานงาน</option>
+            <option>ฝ่ายพยาบาล</option>
+            <option>ฝ่ายพิธีการและปฏิคม</option>
+            <option>ฝ่ายสถานที่</option>
+            <option>ฝ่ายสวัสดิการ</option>
+          </select></div>
+        </div>
+      </div>
+      <div class="form-row full">
+        <div class="field">
+          <label>ฝ่ายที่ <u>ไม่</u> ประสงค์จะทำ <span class="req">*</span></label>
+          <div class="select-wrap"><select id="deptNo">
+            <option value="">-- เลือก --</option>
+            <option>ฝ่ายวิชาการ</option>
+            <option>ฝ่ายกิจกรรมพิเศษและนันทนาการ</option>
+            <option>ฝ่ายเทคโนโลยีและประชาสัมพันธ์</option>
+            <option>ฝ่ายจัดหาทุน</option>
+            <option>ฝ่ายปกครอง</option>
+            <option>ฝ่ายทะเบียน วัดและประเมินผล</option>
+            <option>ฝ่ายประสานงาน</option>
+            <option>ฝ่ายพยาบาล</option>
+            <option>ฝ่ายพิธีการและปฏิคม</option>
+            <option>ฝ่ายสถานที่</option>
+            <option>ฝ่ายสวัสดิการ</option>
+          </select></div>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn-submit" id="btnSubmit" onclick="openModal()">
+      <span></span> ส่งใบสมัครพี่ค่าย
+    </button>
+  </div>
+
+  <div id="successSection" style="display:none">
+    <div class="success-card fade-in">
+      <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+      <h2>ส่งใบสมัครสำเร็จ!</h2>
+      <p>ขอบคุณที่สมัครเป็นพี่ค่ายแสงส่องใจ ครั้งที่ 15</p>
+      <p>สามารถติดตามประกาศรายชื่อได้ทางเพจ Facebook</p>
+      <a href="https://www.facebook.com/profile.php?id=100092714082545" target="_blank" class="btn-new"><i class="fa-brands fa-facebook"></i> ค่ายแสงส่องใจ มหาวิทยาลัยขอนแก่น</a>
+    </div>
+  </div>
+
+  <div class="footer">© 2569 ค่ายแสงส่องใจ ครั้งที่ 15 | วิชาเอกสังคมศึกษา คณะศึกษาศาสตร์ มหาวิทยาลัยขอนแก่น</div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <h2>ยืนยันการส่งใบสมัคร</h2>
+    <p>ตรวจสอบข้อมูลให้ถูกต้องก่อนยืนยัน</p>
+    <div class="modal-summary" id="modalSummary"></div>
+    <div class="modal-btns">
+      <button class="btn-cancel" onclick="closeModal()">← แก้ไข</button>
+      <button class="btn-confirm" id="btnConfirm" onclick="submitForm()">ยืนยัน ✓</button>
+    </div>
+  </div>
+</div>
+
+<!-- LOADING OVERLAY -->
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="loading-content">
+    <div class="spinner"></div>
+    <p>กำลังบันทึกข้อมูล...</p>
+  </div>
+</div>
+
+<script>
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyMiX5xdniQRbFoOyr-a7oA4BHHqBEW9BYy_7lQZ8qxaxrFluV1h3lhIAGQBCIqNYrV/exec';
+
+  function v(id) { return document.getElementById(id).value.trim(); }
+
+  function normalizePhone(value) {
+    const digits = value.replace(/\D/g, '');
+    return digits.startsWith('0') ? digits : '0' + digits;
+  }
+
+  function openModal() {
+    const fields = [
+      { id: 'prefix',   label: 'คำนำหน้า' },
+      { id: 'fullname', label: 'ชื่อ-สกุล' },
+      { id: 'nickname', label: 'ชื่อเล่น' },
+      { id: 'phone',    label: 'เบอร์โทร' },
+      { id: 'email',    label: 'อีเมล' },
+      { id: 'year',     label: 'ชั้นปี' },
+      { id: 'major',    label: 'วิชาเอก' },
+      { id: 'dept1',    label: 'อันดับ 1' },
+      { id: 'dept2',    label: 'อันดับ 2' },
+      { id: 'deptNo',   label: 'ไม่ประสงค์' }
+    ];
+
+    for (const f of fields) {
+      if (!v(f.id)) {
+        alert('⚠️ กรุณากรอก: ' + f.label);
+        document.getElementById(f.id).focus();
+        return;
+      }
+    }
+    if (v('phone').length < 10) {
+      alert('⚠️ กรุณากรอกเบอร์โทรให้ครบ 10 หลัก');
+      return;
+    }
+
+    const phoneValue = normalizePhone(v('phone'));
+
+    document.getElementById('modalSummary').innerHTML =
+      `<strong>ชื่อ-สกุล:</strong> ${v('prefix')}${v('fullname')}<br>
+       <strong>ชื่อเล่น:</strong> ${v('nickname')}<br>
+       <strong>ชั้นปี:</strong> ${v('year')} | <strong>วิชาเอก:</strong> ${v('major')}<br>
+       <strong>เบอร์โทร:</strong> ${phoneValue}<br>
+       <strong>อีเมล:</strong> ${v('email')}<br>
+       <strong>ฝ่ายอันดับ 1:</strong> ${v('dept1')}<br>
+       <strong>ฝ่ายอันดับ 2:</strong> ${v('dept2')}<br>
+       <strong>ฝ่ายที่ไม่ประสงค์:</strong> ${v('deptNo')}`;
+
+    document.getElementById('modalSummary').dataset.phone = phoneValue;
+
+    document.getElementById('modalOverlay').classList.add('show');
+  }
+
+  function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('show');
+  }
+
+  async function submitForm() {
+    closeModal();
+    const loadingOverlay = document.getElementById('loadingOverlay');
+    const btnConfirm = document.getElementById('btnConfirm');
+    loadingOverlay.classList.add('show');
+    btnConfirm.disabled = true;
+
+    const phoneValue = normalizePhone(v('phone'));
+    const data = {
+      prefix:   v('prefix'),
+      fullname: v('fullname'),
+      nickname: v('nickname'),
+      phone:    '="' + phoneValue + '"',
+      email:    v('email'),
+      year:     v('year'),
+      major:    v('major'),
+      dept1:    v('dept1'),
+      dept2:    v('dept2'),
+      deptNo:   v('deptNo')
+    };
+
+    try {
+      // รอให้ fetch เสร็จ และให้โหลดอย่างน้อย 0.5 วินาทีเพื่อไม่ให้กระพริบ
+      await Promise.all([
+        fetch(SCRIPT_URL, {
+          method:  'POST',
+          mode:    'no-cors',
+          keepalive: true,
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify(data)
+        }),
+        new Promise(resolve => setTimeout(resolve, 250))
+      ]);
+
+      loadingOverlay.classList.remove('show');
+      document.getElementById('formSection').style.display  = 'none';
+      document.getElementById('successSection').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (err) {
+      loadingOverlay.classList.remove('show');
+      btnConfirm.disabled = false;
+      alert('❌ เกิดข้อผิดพลาดในการบันทึกข้อมูล กรุณาลองใหม่อีกครั้ง');
+      console.error('ส่งข้อมูลล้มเหลว:', err);
+    }
+  }
+
+  document.getElementById('modalOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>กรรมการค่าย - ค่ายแสงส่องใจ ครั้งที่ 15 | Sangsongjai Camp #15</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&family=Chakra+Petch:wght@400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" />
+<style>
+:root {
+  --blue-deep: #1d4ed8;
+  --blue-mid: #3b82f6;
+  --blue-bright: #60a5fa;
+  --blue-light: #dbeafe;
+  --blue-pale: #eff6ff;
+  --orange: #fb923c;
+  --orange-deep: #ea580c;
+  --orange-light: #fed7aa;
+  --gold: #fcd34d;
+  --white: #ffffff;
+  --gray-50: #f8fafc;
+  --gray-100: #f1f5f9;
+  --gray-200: #e2e8f0;
+  --gray-600: #475569;
+  --gray-700: #334155;
+  --gray-800: #1e293b;
+  --text-main: #0f172a;
+  --radius: 16px;
+  --shadow: 0 4px 24px rgba(29,78,216,0.10);
+  --shadow-lg: 0 8px 48px rgba(29,78,216,0.16);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Sarabun', sans-serif;
+  color: var(--text-main);
+  background: var(--white);
+  overflow-x: hidden;
+}
+
+/* ---- NAV ---- */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(10,36,99,0.97);
+  backdrop-filter: blur(12px);
+  padding: 0 5%;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.25);
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
+}
+.nav-logo .logo-icon {
+  width: 38px; height: 38px;
+  border-radius: 10px;
+}
+.nav-logo span {
+  font-family: 'Chakra Petch', sans-serif;
+  color: white; font-weight: 600; font-size: 1rem;
+  line-height: 1.1;
+}
+.nav-logo small { color: var(--orange-light); font-size: 0.7rem; display: block; }
+.nav-links {
+  display: flex; gap: 6px; list-style: none;
+}
+.nav-links a {
+  color: rgba(255,255,255,0.80);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 10px 12px;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+.nav-links a:hover { background: rgba(255,255,255,0.12); color: white; }
+.nav-cta {
+  background: linear-gradient(135deg, var(--orange), var(--orange-deep));
+  color: white !important;
+  font-weight: 600 !important;
+  padding: 8px 18px !important;
+  border-radius: 10px !important;
+}
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(249,115,22,0.4); }
+
+.hamburger {
+  display: none;
+  flex-direction: column; gap: 5px; cursor: pointer; padding: 6px;
+}
+.hamburger span { width: 24px; height: 2px; background: white; border-radius: 2px; transition: 0.3s; }
+
+/* ---- SECTIONS ---- */
+section { padding: 80px 5%; }
+.section-header { text-align: center; margin-bottom: 56px; padding-top: 40px; }
+.section-tag {
+  display: inline-block;
+  background: var(--blue-light);
+  color: var(--blue-mid);
+  font-size: 0.78rem; font-weight: 700;
+  padding: 4px 14px; border-radius: 50px;
+  letter-spacing: 0.05em; text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.section-tag.orange { background: var(--orange-light); color: var(--orange-deep); }
+.section-title {
+  font-family: 'Prompt', sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 700; color: var(--blue-deep);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+.section-desc { color: var(--gray-600); font-size: 1rem; max-width: 600px; margin: 0 auto; line-height: 1.7; }
+
+/* ---- TEAM ---- */
+.team { background: var(--gray-50); }
+.team-container { max-width: 1100px; margin: 0 auto; }
+.leadership-row {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-bottom: 48px;
+}
+.person-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.person-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(29,78,216,0.18);
+}
+.person-card-image {
+  width: 100%;
+  height: 280px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(254,215,170,0.6) 100%);
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.person-card-image.has-photo {
+  background-blend-mode: overlay;
+}
+.person-card-info {
+  background: var(--blue-deep);
+  color: white;
+  padding: 24px 20px;
+  text-align: left;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.person-card .first-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 2px;
+}
+.person-card .last-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 12px;
+}
+.person-card h4 {
+  display: none;
+}
+.person-card .role {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--orange);
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+.avatar {
+  display: none;
+}
+
+.dept-section-title {
+  font-family: 'Prompt', sans-serif;
+  font-size: 1.3rem; font-weight: 700; color: var(--blue-deep);
+  margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
+}
+.dept-section-title::after {
+  content: ''; flex: 1; height: 2px;
+  background: linear-gradient(90deg, var(--blue-light), transparent);
+}
+
+/* ---- CONTACT ---- */
+.contact { background: var(--gray-800); padding: 60px 5%; }
+.contact-grid {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px;
+}
+.contact-item h4 { color: white; font-weight: 700; margin-bottom: 12px; font-size: 1rem; }
+.contact-item p, .contact-item a {
+  color: rgba(255,255,255,0.65); font-size: 0.88rem; line-height: 1.7;
+  text-decoration: none; display: block;
+}
+.contact-item a:hover { color: var(--orange); }
+.social-links { display: flex; flex-direction: column; gap: 8px; }
+.social-link {
+  display: flex; align-items: center; gap: 10px;
+  color: rgba(255,255,255,0.75) !important;
+  background: rgba(255,255,255,0.07); padding: 8px 12px; border-radius: 10px;
+  transition: all 0.2s;
+}
+.social-link i {
+  width: 18px; display: inline-flex; justify-content: center;
+}
+.social-link:hover { background: rgba(249,115,22,0.2); color: var(--orange-light) !important; }
+.footer-bottom {
+  max-width: 1100px; margin: 40px auto 0;
+  padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1);
+  text-align: center; color: rgba(255,255,255,0.4); font-size: 0.8rem;
+}
+
+/* ---- SCROLL REVEAL ---- */
+.reveal { opacity: 0; transform: translateY(24px); transition: all 0.6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .nav-links.open {
+    display: flex; flex-direction: column;
+    position: absolute; top: 64px; left: 0; right: 0;
+    background: var(--blue-deep); padding: 16px;
+    gap: 12px;
+  }
+  .leadership-row { grid-template-columns: 1fr 1fr !important; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .person-card-image { height: 240px; }
+}
+@media (max-width: 600px) {
+  .leadership-row { grid-template-columns: 1fr 1fr !important; }
+  section { padding: 60px 5%; }
+  .person-card-image { height: 200px; }
+}
+</style>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="index.html" class="nav-logo">
+    <img src="pic/logossj15.png" alt="Logo" class="logo-icon">
+    <span>แสงส่องใจ<small>ครั้งที่ 15</small></span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html#about">เกี่ยวกับค่าย</a></li>
+    <li><a href="index.html#schedule">กำหนดการ</a></li>
+    <li><a href="index.html#history">ทำเนียบค่าย</a></li>
+    <li><a href="#team">กรรมการค่าย</a></li>
+    <li><a href="index.html#registration" class="nav-cta">สมัครพี่ค่าย</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- TEAM -->
+<section class="team" id="team">
+  <div class="section-header reveal">
+    <span class="section-tag">กรรมการค่าย</span>
+    <h2 class="section-title">คณะผู้รับผิดชอบโครงการ</h2>
+    <p class="section-desc">นักศึกษาวิชาเอกสังคมศึกษา คณะศึกษาศาสตร์ มหาวิทยาลัยขอนแก่น</p>
+  </div>
+  <div class="team-container">
+    <!-- Leadership -->
+    <div class="dept-section-title reveal">👑 ฝ่ายอำนวยการ</div>
+    <div class="leadership-row reveal">
+      <div class="person-card">
+        <div class="person-card-image has-photo" style="background-image: url('pic/team photo/673050069-7.png')"></div>
+        <div class="person-card-info">
+          <div class="first-name">ธนโชติ</div>
+          <div class="last-name">บัวคง</div>
+          <div class="role">ประธานโครงการ</div>
+        </div>
+      </div>
+      <div class="person-card">
+        <div class="person-card-image has-photo" style="background-image: url('pic/team photo/673050065-5.png')"></div>
+        <div class="person-card-info">
+          <div class="first-name">ชิตวัน</div>
+          <div class="last-name">ชำนาญมะเริง</div>
+          <div class="role">รองประธานโครงการ</div>
+        </div>
+      </div>
+      <div class="person-card">
+        <div class="person-card-image has-photo" style="background-image: url('pic/team photo/673050080-9.png')"></div>
+        <div class="person-card-info">
+          <div class="first-name">อดิเทพ</div>
+          <div class="last-name">โคตรสีกุล</div>
+          <div class="role">รองประธานโครงการ</div>
+        </div>
+      </div>
+      <div class="person-card">
+        <div class="person-card-image has-photo" style="background-image: url('pic/team photo/673050337-8.png')"></div>
+        <div class="person-card-info">
+          <div class="first-name">ภรัณยู</div>
+          <div class="last-name">โสประดิษฐ</div>
+          <div class="role">เลขา/เหรัญญิก</div>
+        </div>
+      </div>
+    </div>
+    <div id="departmentsContainer"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<footer class="contact" id="contact">
+  <div class="contact-grid">
+    <div class="contact-item">
+      <h4><i class="fa-solid fa-location-dot"></i> ที่ตั้ง</h4>
+      <p>วิชาเอกสังคมศึกษา คณะศึกษาศาสตร์<br>มหาวิทยาลัยขอนแก่น<br>เลขที่ 123 หมู่ 16 ถนนมิตรภาพ<br>ตำบลในเมือง อำเภอเมือง<br>จังหวัดขอนแก่น 40002</p>
+    </div>
+    <div class="contact-item">
+      <h4><i class="fa-solid fa-mobile"></i> ติดตามเรา</h4>
+      <div class="social-links">
+        <a href="https://www.facebook.com/profile.php?id=100092714082545" target="_blank" class="social-link"><i class="fa-brands fa-square-facebook"></i> Facebook Fanpage</a>
+        <a href="https://www.instagram.com/sangsongjai14_kku" target="_blank" class="social-link"><i class="fa-brands fa-instagram"></i> Instagram</a>
+        <a href="register.html" class="social-link"><i class="fas fa-edit"></i> ระบบรับสมัครพี่ค่าย</a>
+      </div>
+    </div>
+    <div class="contact-item">
+      <h4><i class="fa-solid fa-file-lines"></i> ข้อมูลโครงการ</h4>
+      <p>ผู้รับผิดชอบ: นายธนโชติ บัวคง</p>
+      <p>ที่ปรึกษา: ผศ.ดร.ณัฐพล มีแก้ว</p>
+      <p style="margin-top:10px;">สถานที่: ร.ร.ประจักษ์ศิลปาคาร<br>วันที่: 15 – 17 สิงหาคม 2569</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2569 ค่ายแสงส่องใจ ครั้งที่ 15 | วิชาเอกสังคมศึกษา คณะศึกษาศาสตร์ มหาวิทยาลัยขอนแก่น
+  </div>
+</footer>
+
+<script>
+// Departments data
+const departments = [
+  {
+    name: 'ฝ่ายวิชาการ', icon: '📚', slots: 14,
+    duties: ['จัดทำหลักสูตรค่ายแสงส่องใจ ครั้งที่ 15','จัดทำแผนการจัดการเรียนรู้ในแต่ละฐาน','จัดทำสื่อประกอบการเรียนรู้','ออกแบบและจัดทำสมุดค่าย','จัดทำแบบทดสอบก่อน-หลังการเรียนรู้'],
+    members: [
+      {role:'หัวหน้าฝ่าย', name:'นฤบดินทร์ นันหมื่น', id:'673050071-0'},
+      {role:'รองหัวหน้าฝ่าย', name:'อภิชญา พูลสวัสดิ์', id:'673050497-6'},
+      {role:'สมาชิก', name:'เจนสุดา มาลีหวล', id:'673050498-4'},
+      {role:'สมาชิก', name:'ปฏิภาณ ลอยขามป้อม', id:'673050336-0'},
+    ]
+  },
+  {
+    name: 'ฝ่ายกิจกรรมพิเศษและนันทนาการ', icon: '🎭', slots: 18,
+    duties: ['จัดทำป้ายกลุ่มและป้ายชื่อน้องค่าย','ดูแลกิจกรรมนันทนาการและกลุ่มสัมพันธ์','ทำหน้าที่พี่เลี้ยงกลุ่ม','ทำหน้าที่พิธีกรช่วงนันทนาการ','ควบคุมกิจกรรมรอบกองไฟ'],
+    members: [
+      {role:'หัวหน้าฝ่าย', name:'คณาธิป บัวคำภู', id:'673050064-7'},
+      {role:'รองหัวหน้าฝ่าย', name:'สุชานาถ จรเกษ', id:'673050078-6'},
+      {role:'สมาชิก', name:'สุรชัย ติละบาล', id:'673050079-4'},
+      {role:'สมาชิก', name:'พัชราภรณ์ สร้างการณ์นอก', id:'673050073-6'},
+    ]
+  },
+  {
+    name: 'ฝ่ายเทคโนโลยีและประชาสัมพันธ์', icon: '📸', slots: 8,
+    duties: ['ออกแบบสื่อประชาสัมพันธ์','จัดทำ Google Forms','จัดตั้งกลุ่ม Facebook','จัดทำตราสัญลักษณ์ (Logo) และไอดีการ์ด','บันทึกและตัดต่อวิดีโอสรุปค่าย','ดูแลอุปกรณ์โสตทัศนูปกรณ์'],
+    members: [
+      {role:'หัวหน้าฝ่าย', name:'ณัฐชยา กลักโพธิ์', id:'673050067-1'},
+      {role:'รองหัวหน้าฝ่าย', name:'ภูมิรัฐ ดีรักษา', id:'673050339-4'},
+      {role:'สมาชิก', name:'อชิรวิชญ์ กรุรัมย์', id:'673050496-8'},
+    ]
+  },
+  {
+    name: 'ฝ่ายจัดหาทุน', icon: '💰', slots: 3,
+    duties: ['ดำเนินการจัดทำหนังสือและติดต่อประสานงานกับหน่วยงานต่างๆ','จัดทำกำหนดการค่ายแสงส่องใจ','ดูแลการใช้งานวิทยุสื่อสารภายในค่าย'],
+    members: [
+      {role:'หัวหน้าฝ่าย', name:'เอื้ออังกูร อุณาพรหม', id:'673050342-5'},
+      {role:'รองหัวหน้าฝ่าย', name:'เกียรติสกุลชัย ตะจันดา', id:'673050083-3'},
+      {role:'สมาชิก', name:'ภัทรพล ทีปานนท์', id:'673050338-6'},
+    ]
+  },
+  {
+    name: 'ฝ่ายปกครอง', icon: '🛡️', slots: 10,
+    duties: ['จัดทำกฎค่ายและชี้แจงแก่ผู้เข้าร่วม','ควบคุมดูแลความสงบเรียบร้อยและความปลอดภัย','ดูแลด้านจราจรและที่จอดรถ','จัดเวรรักษาความปลอดภัย','นำกล่าวคำบูชาอาหาร'],
+    members: [
+      {role:'หัวหน้าฝ่าย', name:'กิตติเดช ขอนยาง', id:'673050491-8'},
+      {role:'รองหัวหน้าฝ่าย', name:'เปมิกา ปานเจริญ', id:'673050499-2'},
+    ]
+  },
+  {
+    name: 'ฝ่ายทะเบียน วัดและประเมินผล', icon: '📋', slots: 4,
+    duties: ['จัดทำแบบฟอร์มและรับลงทะเบียน','จัดทำเกียรติบัตรพี่ค่ายและน้องค่าย','จัดทำแบบประเมินความพึงพอใจ','จัดทำสมุดบันทึกความทรงจำ','จัดทำเล่มสรุปโครงการ'],
+    members: [
+      {role:'หัวหน้าฝ่าย', name:'รัฐติกุล พันธ์เจริญ', id:'673050075-2'},
+      {role:'รองหัวหน้าฝ่าย', name:'วรายุส สีคาม', id:'673050076-0'},
+    ]
+  },
+  {
+    name: 'ฝ่ายประสานงาน', icon: '📡', slots: 5,
+    duties: ['ดำเนินการจัดทำหนังสือและติดต่อหน่วยงานต่างๆ','จัดทำกำหนดการค่าย','ดูแลการใช้งานวิทยุสื่อสาร'],
+    members: [
+      {role:'หัวหน้าฝ่าย', name:'วรัญญา เนียมสำเภา', id:'673050340-9'},
+      {role:'รองหัวหน้าฝ่าย', name:'ณัฐพัชร์ พรมสวัสดิ์', id:'673050335-2'},
+      {role:'สมาชิก', name:'พนิดา พะนิรัมย์', id:'673050072-8'},
+    ]
+  },
+  {
+    name: 'ฝ่ายพยาบาล', icon: '🏥', slots: 7,
+    duties: ['จัดทำแบบสำรวจสุขภาพ','จัดซื้อยาและดูแลสุขภาพสมาชิก','ปฏิบัติงานฉุกเฉินและปฐมพยาบาล'],
+    members: [
+      {role:'หัวหน้าฝ่าย', name:'ธีระพัฒน์ ชัยบุดดี', id:'673050070-2'},
+      {role:'รองหัวหน้าฝ่าย', name:'พิมพ์ลดา ศรีพุ่ม', id:'673050074-4'},
+    ]
+  },
+  {
+    name: 'ฝ่ายพิธีการและปฏิคม', icon: '🎤', slots: 4,
+    duties: ['พิธีกรดำเนินกิจกรรมพิธีเปิด-ปิด','ดูแลปฏิคมอาจารย์และแขกสำคัญ','จัดดำเนินกิจกรรมพิธีเทียน','ดูแลพิธีทางเทวสัมพันธ์ต่างๆ'],
+    members: [
+      {role:'หัวหน้าฝ่าย', name:'ณัฐพงษ์ อุ่นโล', id:'673050068-9'},
+      {role:'รองหัวหน้าฝ่าย', name:'อริษา ภูชะหาร', id:'673050082-5'},
+    ]
+  },
+  {
+    name: 'ฝ่ายสถานที่', icon: '🏗️', slots: 21,
+    duties: ['จัดเตรียมวัสดุอุปกรณ์','ดูแลห้องประชุม ห้องนอน ห้องน้ำ','จัดพื้นที่ทำกิจกรรม','จัดพื้นที่พิธีเปิด-ปิด','ดูแลความเรียบร้อยของสถานที่'],
+    members: [
+      {role:'หัวหน้าฝ่าย', name:'ศุภกร บุตรเพ็ง', id:'673050077-8'},
+      {role:'รองหัวหน้าฝ่าย', name:'เกตสินีย์ ทองสุข', id:'673050341-7'},
+      {role:'สมาชิก', name:'ชินวัตร ภักดีวุฒิ', id:'673050333-6'},
+      {role:'สมาชิก', name:'นันทิกานต์ กันรัมย์', id:'673050494-2'},
+    ]
+  },
+  {
+    name: 'ฝ่ายอาหารและสวัสดิการ', icon: '🍽️', slots: 19,
+    duties: ['จัดเตรียมอาหารและน้ำดื่มอย่างตรงเวลา','ควบคุมคุณภาพอาหารให้สะอาดถูกสุขลักษณะ','ควบคุมงบประมาณด้านอาหาร'],
+    members: [
+      {role:'หัวหน้าฝ่าย', name:'อนันยช ไขลำเมา', id:'673050081-7'},
+      {role:'รองหัวหน้าฝ่าย', name:'ฐิติมา ไชโยธา', id:'673050066-3'},
+      {role:'สมาชิก', name:'กชกร ชัยสุวรรณ์', id:'673050063-9'},
+      {role:'สมาชิก', name:'รัตนวดี หาโคตร', id:'673050495-0'},
+    ]
+  },
+];
+
+// Render departments
+const container = document.getElementById('departmentsContainer');
+departments.forEach(dept => {
+  const title = document.createElement('div');
+  title.className = 'dept-section-title reveal';
+  title.textContent = dept.icon + ' ' + dept.name;
+  container.appendChild(title);
+
+  const row = document.createElement('div');
+  row.className = 'leadership-row reveal';
+  dept.members.forEach(member => {
+    const card = document.createElement('div');
+    card.className = 'person-card';
+    
+    // แยกชื่อ ลบคำนำหน้า
+    let fullName = member.name;
+    fullName = fullName.replace(/^(นาย|นาง|นางสาว|ผู้ช่วย|อ\.|รศ\.|ผศ\.)\s*/, '');
+    const parts = fullName.split(' ');
+    const firstName = parts[0] || '';
+    const lastName = parts.slice(1).join(' ') || '';
+    
+    card.innerHTML = `
+      <div class="person-card-image has-photo" style="background-image: url('pic/team photo/${member.id}.png')"></div>
+      <div class="person-card-info">
+        <div class="first-name">${firstName}</div>
+        <div class="last-name">${lastName}</div>
+        <div class="role">${member.role}</div>
+      </div>
+    `;
+    row.appendChild(card);
+  });
+  container.appendChild(row);
+});
+
+// Scroll reveal
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+revealEls.forEach(el => observer.observe(el));
+
+// Nav toggle
+function toggleNav() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+</script>
+</body>
+</html>
