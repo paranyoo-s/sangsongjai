@@ -4,32 +4,41 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>สมัครพี่ค่าย | ค่ายแสงส่องใจ ครั้งที่ 15</title>
-  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&family=Chakra+Petch:wght@400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@100..700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" />
   <style>
     :root {
-      --bg:         #eff6ff;
-      --ink:        #0f172a;
-      --accent:     #f97316;
-      --accent2:    #fed7aa;
-      --card:       #ffffff;
-      --border:     #dbeafe;
-      --muted:      #475569;
-      --shadow:     0 4px 24px rgba(10,36,99,.10);
-      --shadow-lg:  0 8px 48px rgba(10,36,99,.16);
-      --radius:     16px;
-      --font:       'Sarabun', sans-serif;
-      --blue-deep:  #0a2463;
-      --blue-mid:   #1e4db7;
-      --blue-bright:#2563eb;
+      --blue-deep: #0a2463;
+      --blue-mid: #1e4db7;
+      --blue-bright: #2563eb;
+      --blue-light: #dbeafe;
+      --blue-pale: #eff6ff;
+      --orange: #f97316;
+      --orange-deep: #c2410c;
+      --orange-light: #fed7aa;
+      --gold: #fbbf24;
+      --navy: #1A2A4A;
+      --white: #ffffff;
+      --gray-50: #f8fafc;
+      --gray-100: #f1f5f9;
+      --gray-200: #e2e8f0;
+      --gray-600: #475569;
+      --gray-700: #334155;
+      --gray-800: #1e293b;
+      --text-main: #0f172a;
+      --radius: 16px;
+      --shadow: 0 4px 24px rgba(10,36,99,0.10);
+      --shadow-lg: 0 8px 48px rgba(10,36,99,0.16);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: var(--font);
-      background: var(--bg);
-      color: var(--ink);
+      font-family: 'Anuphan', sans-serif;
+      background: var(--blue-pale);
+      color: var(--text-main);
       min-height: 100vh;
       padding-bottom: 60px;
     }
@@ -70,21 +79,21 @@
       display: inline-flex; align-items: center; gap: 6px;
       background: rgba(249,115,22,0.15);
       border: 1px solid rgba(249,115,22,0.4);
-      color: var(--accent2);
+      color: var(--orange-light);
       padding: 5px 16px; border-radius: 50px;
       font-size: .78rem; font-weight: 600;
       margin-bottom: 14px;
       position: relative; z-index: 1;
     }
-    .header-badge::before { content: '✦'; color: var(--accent); }
+    .header-badge::before { content: '✦'; color: var(--orange); }
     .header-title {
-      font-family: 'Prompt', sans-serif;
+      font-family: 'Anuphan', sans-serif;
       font-size: clamp(1.5rem, 5vw, 2.2rem);
       font-weight: 700; line-height: 1.2;
       position: relative; z-index: 1;
     }
     .header-title .highlight {
-      background: linear-gradient(135deg, var(--accent), #fbbf24);
+      background: linear-gradient(135deg, var(--orange), var(--gold));
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       background-clip: text;
     }
@@ -109,21 +118,21 @@
 
     /* ─── CARD ─── */
     .card {
-      background: var(--card); border-radius: var(--radius);
-      box-shadow: var(--shadow); border: 1.5px solid var(--border);
+      background: var(--white); border-radius: var(--radius);
+      box-shadow: var(--shadow); border: 1.5px solid var(--blue-light);
       padding: 28px 24px; margin-bottom: 18px; transition: box-shadow 0.3s;
     }
     .card:hover { box-shadow: var(--shadow-lg); }
     .card-title {
       display: flex; align-items: center; gap: 10px;
-      font-family: 'Prompt', sans-serif;
+      font-family: 'Anuphan', sans-serif;
       font-size: 1.05rem; font-weight: 700; color: var(--blue-deep);
       margin-bottom: 22px; padding-bottom: 14px;
-      border-bottom: 2px solid var(--border);
+      border-bottom: 2px solid var(--blue-light);
     }
     .card-icon {
       width: 36px; height: 36px;
-      background: linear-gradient(135deg, var(--accent), #c2410c);
+      background: linear-gradient(135deg, var(--orange), var(--orange-deep));
       border-radius: 10px;
       display: flex; align-items: center; justify-content: center;
       font-size: 1rem; flex-shrink: 0;
@@ -136,13 +145,13 @@
 
     .field { display: flex; flex-direction: column; gap: 6px; }
     .field label {
-      font-size: .78rem; font-weight: 700; color: var(--muted);
+      font-size: .78rem; font-weight: 700; color: var(--gray-600);
       letter-spacing: .05em; text-transform: uppercase;
     }
-    .field label span.req { color: var(--accent); margin-left: 2px; }
+    .field label span.req { color: var(--orange); margin-left: 2px; }
 
     .field input, .field select {
-      font-family: var(--font); font-size: .97rem; color: var(--ink);
+      font-family: 'Anuphan', sans-serif; font-size: .97rem; color: var(--text-main);
       background: #f8fafc; border: 1.5px solid #e2e8f0;
       border-radius: 10px; padding: 11px 14px; outline: none;
       transition: border-color .18s, box-shadow .18s, background .18s;
@@ -158,7 +167,7 @@
     .select-wrap { position: relative; }
     .select-wrap::after {
       content: '▾'; position: absolute; right: 13px; top: 50%;
-      transform: translateY(-50%); font-size: .9rem; color: var(--accent);
+      transform: translateY(-50%); font-size: .9rem; color: var(--orange);
       pointer-events: none;
     }
 
@@ -167,8 +176,8 @@
 
     /* ─── SUBMIT BUTTON ─── */
     .btn-submit {
-      font-family: var(--font); font-size: 1.05rem; font-weight: 700;
-      background: linear-gradient(135deg, var(--accent) 0%, #c2410c 100%);
+      font-family: 'Anuphan', sans-serif; font-size: 1.05rem; font-weight: 700;
+      background: linear-gradient(135deg, var(--orange) 0%, var(--orange-deep) 100%);
       color: #fff; border: none; border-radius: 12px; padding: 15px 32px;
       cursor: pointer; width: 100%; margin-top: 8px;
       display: flex; align-items: center; justify-content: center; gap: 10px;
@@ -187,35 +196,35 @@
     }
     .modal-overlay.show { opacity: 1; pointer-events: all; }
     .modal {
-      background: var(--card); border-radius: 20px; padding: 32px 28px;
+      background: var(--white); border-radius: 20px; padding: 32px 28px;
       max-width: 440px; width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,.25);
       transform: scale(.93) translateY(10px);
       transition: transform .25s cubic-bezier(.34,1.56,.64,1);
     }
     .modal-overlay.show .modal { transform: scale(1) translateY(0); }
     .modal h2 {
-      font-family: 'Prompt', sans-serif; text-align: center;
+      font-family: 'Anuphan', sans-serif; text-align: center;
       font-size: 1.2rem; font-weight: 700; color: var(--blue-deep); margin-bottom: 6px;
     }
-    .modal p { text-align: center; font-size: .88rem; color: var(--muted); margin-bottom: 20px; line-height: 1.6; }
+    .modal p { text-align: center; font-size: .88rem; color: var(--gray-600); margin-bottom: 20px; line-height: 1.6; }
     .modal-summary {
       background: #f8fafc; border-radius: 12px; padding: 16px 18px;
       margin-bottom: 22px; font-size: .88rem; line-height: 1.9;
-      border: 1.5px solid var(--border);
+      border: 1.5px solid var(--blue-light);
     }
     .modal-summary strong { color: var(--blue-mid); }
     .modal-btns { display: flex; gap: 12px; }
     .btn-cancel, .btn-confirm {
-      font-family: var(--font); flex: 1; padding: 12px;
+      font-family: 'Anuphan', sans-serif; flex: 1; padding: 12px;
       border-radius: 10px; font-size: .95rem; cursor: pointer;
     }
     .btn-cancel {
       border: 1.5px solid #e2e8f0; background: transparent;
-      color: var(--muted); font-weight: 600; transition: background .15s;
+      color: var(--gray-600); font-weight: 600; transition: background .15s;
     }
     .btn-cancel:hover { background: #f1f5f9; }
     .btn-confirm {
-      background: linear-gradient(135deg, var(--accent), #c2410c);
+      background: linear-gradient(135deg, var(--orange), var(--orange-deep));
       border: none; color: #fff; font-weight: 700; flex: 1.5;
       box-shadow: 0 4px 14px rgba(249,115,22,.35);
       transition: transform .15s, box-shadow .15s;
@@ -224,8 +233,8 @@
 
     /* ─── SUCCESS ─── */
     .success-card {
-      background: var(--card); border-radius: var(--radius);
-      box-shadow: var(--shadow-lg); border: 1.5px solid var(--border);
+      background: var(--white); border-radius: var(--radius);
+      box-shadow: var(--shadow-lg); border: 1.5px solid var(--blue-light);
       padding: 48px 28px; text-align: center;
     }
     .success-icon {
@@ -236,12 +245,12 @@
       box-shadow: 0 6px 24px rgba(46,125,50,.35);
     }
     .success-card h2 {
-      font-family: 'Prompt', sans-serif;
+      font-family: 'Anuphan', sans-serif;
       font-size: 1.4rem; font-weight: 700; color: var(--blue-deep); margin-bottom: 10px;
     }
-    .success-card p { color: var(--muted); line-height: 1.7; margin-bottom: 4px; }
+    .success-card p { color: var(--gray-600); line-height: 1.7; margin-bottom: 4px; }
     .btn-new {
-      font-family: var(--font);
+      font-family: 'Anuphan', sans-serif;
       display: inline-flex; align-items: center; gap: 8px;
       margin-top: 28px; padding: 13px 28px;
       background: linear-gradient(135deg, var(--blue-deep), var(--blue-mid));
@@ -262,7 +271,7 @@
     @keyframes spin { to { transform: rotate(360deg); } }
 
     .footer {
-      text-align: center; font-size: .78rem; color: var(--muted);
+      text-align: center; font-size: .78rem; color: var(--gray-600);
       margin-top: 36px; padding: 0 16px; line-height: 1.7;
     }
     .fade-in { animation: fadeUp .4s ease both; }
@@ -280,19 +289,19 @@
     }
     .loading-overlay.show { opacity: 1; pointer-events: all; }
     .loading-content {
-      background: var(--card); border-radius: 20px; padding: 32px 28px;
+      background: var(--white); border-radius: 20px; padding: 32px 28px;
       max-width: 440px; width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,.25);
       text-align: center;
     }
     .loading-content .spinner {
       width: 40px; height: 40px;
       border: 4px solid rgba(249,115,22,.3);
-      border-top-color: var(--accent); border-radius: 50%;
+      border-top-color: var(--orange); border-radius: 50%;
       animation: spin .7s linear infinite;
       margin: 0 auto 16px;
     }
     .loading-content p {
-      color: var(--muted); font-size: 1rem; line-height: 1.6;
+      color: var(--gray-600); font-size: 1rem; line-height: 1.6;
     }
   </style>
 </head>
@@ -301,7 +310,7 @@
 <header class="header">
   <div class="header-grid"></div>
   <img class="header-logo" src="https://lh3.googleusercontent.com/d/1BOpRat33iGyGSaThTFRzfkmL2oiYatx3" alt="โลโก้ค่าย" />
-  <div class="header-badge">วิชาเอกสังคมศึกษา คณะศึกษาศาสตร์ มข.</div>
+  <div class="header-badge">SOC ED in KKU</div>
   <div class="header-title">ค่าย<span class="highlight">แสงส่องใจ</span> ครั้งที่ 15</div>
   <div class="header-sub">สมัครพี่ค่าย — เปิดรับสมัครแล้ววันนี้</div>
   <div class="header-info-row">
@@ -340,7 +349,7 @@
       <div class="form-row">
         <div class="field">
           <label>ชื่อเล่น (ไม่เอ้)<span class="req">*</span></label>
-          <input type="text" id="nickname" placeholder="ชื่อเล่น" />
+          <input type="text" id="nickname" placeholder="ปีเตอร์" />
         </div>
         <div class="field">
           <label>เบอร์โทรศัพท์ <span class="req">*</span></label>

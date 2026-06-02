@@ -9,15 +9,17 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" />
 <style>
 :root {
-  --blue-deep: #1d4ed8;
-  --blue-mid: #3b82f6;
-  --blue-bright: #60a5fa;
+  --blue-deep: #0a2463;
+  --blue-mid: #1e4db7;
+  --blue-bright: #2563eb;
   --blue-light: #dbeafe;
   --blue-pale: #eff6ff;
-  --orange: #fb923c;
-  --orange-deep: #ea580c;
+  --orange: #f97316;
+  --orange-deep: #c2410c;
   --orange-light: #fed7aa;
-  --gold: #fcd34d;
+  --gold: #fbbf24;
+  --navy: #1A2A4A;
+  --text-gold: #FFB347;
   --white: #ffffff;
   --gray-50: #f8fafc;
   --gray-100: #f1f5f9;
@@ -27,8 +29,8 @@
   --gray-800: #1e293b;
   --text-main: #0f172a;
   --radius: 16px;
-  --shadow: 0 4px 24px rgba(29,78,216,0.10);
-  --shadow-lg: 0 8px 48px rgba(29,78,216,0.16);
+  --shadow: 0 4px 24px rgba(10,36,99,0.10);
+  --shadow-lg: 0 8px 48px rgba(10,36,99,0.16);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -138,7 +140,7 @@ section { padding: 80px 5%; }
 .person-card-image {
   width: 100%;
   height: 280px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(254,215,170,0.6) 100%);
+  background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(244,123,32,0.12) 100%);
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -148,7 +150,7 @@ section { padding: 80px 5%; }
   background-blend-mode: overlay;
 }
 .person-card-info {
-  background: var(--blue-deep);
+  background: var(--navy);
   color: white;
   padding: 24px 20px;
   text-align: left;
@@ -191,6 +193,7 @@ section { padding: 80px 5%; }
   font-size: 1.3rem; font-weight: 700; color: var(--blue-deep);
   margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
 }
+.dept-section-title i { color: var(--orange); }
 .dept-section-title::after {
   content: ''; flex: 1; height: 2px;
   background: linear-gradient(90deg, var(--blue-light), transparent);
@@ -284,7 +287,7 @@ section { padding: 80px 5%; }
   </div>
   <div class="team-container">
     <!-- Leadership -->
-    <div class="dept-section-title reveal">👑 ฝ่ายอำนวยการ</div>
+    <div class="dept-section-title reveal"><i class="fa-solid fa-bomb"></i> ฝ่ายอำนวยการ</div>
     <div class="leadership-row reveal">
       <div class="person-card">
         <div class="person-card-image has-photo" style="background-image: url('pic/team photo/673050069-7.png')"></div>
@@ -331,7 +334,7 @@ section { padding: 80px 5%; }
       <p>วิชาเอกสังคมศึกษา คณะศึกษาศาสตร์<br>มหาวิทยาลัยขอนแก่น<br>เลขที่ 123 หมู่ 16 ถนนมิตรภาพ<br>ตำบลในเมือง อำเภอเมือง<br>จังหวัดขอนแก่น 40002</p>
     </div>
     <div class="contact-item">
-      <h4><i class="fa-solid fa-mobile"></i> ติดตามเรา</h4>
+      <h4><i class="fa-solid fa-mobile"></i> ช่องทางการติดตาม</h4>
       <div class="social-links">
         <a href="https://www.facebook.com/profile.php?id=100092714082545" target="_blank" class="social-link"><i class="fa-brands fa-square-facebook"></i> Facebook Fanpage</a>
         <a href="https://www.instagram.com/sangsongjai14_kku" target="_blank" class="social-link"><i class="fa-brands fa-instagram"></i> Instagram</a>
@@ -354,7 +357,7 @@ section { padding: 80px 5%; }
 // Departments data
 const departments = [
   {
-    name: 'ฝ่ายวิชาการ', icon: '📚', slots: 14,
+    name: 'ฝ่ายวิชาการ', icon: '<i class="fas fa-book"></i>', slots: 14,
     duties: ['จัดทำหลักสูตรค่ายแสงส่องใจ ครั้งที่ 15','จัดทำแผนการจัดการเรียนรู้ในแต่ละฐาน','จัดทำสื่อประกอบการเรียนรู้','ออกแบบและจัดทำสมุดค่าย','จัดทำแบบทดสอบก่อน-หลังการเรียนรู้'],
     members: [
       {role:'หัวหน้าฝ่าย', name:'นฤบดินทร์ นันหมื่น', id:'673050071-0'},
@@ -364,7 +367,7 @@ const departments = [
     ]
   },
   {
-    name: 'ฝ่ายกิจกรรมพิเศษและนันทนาการ', icon: '🎭', slots: 18,
+    name: 'ฝ่ายกิจกรรมพิเศษและนันทนาการ', icon: '<i class="fas fa-running"></i>', slots: 18,
     duties: ['จัดทำป้ายกลุ่มและป้ายชื่อน้องค่าย','ดูแลกิจกรรมนันทนาการและกลุ่มสัมพันธ์','ทำหน้าที่พี่เลี้ยงกลุ่ม','ทำหน้าที่พิธีกรช่วงนันทนาการ','ควบคุมกิจกรรมรอบกองไฟ'],
     members: [
       {role:'หัวหน้าฝ่าย', name:'คณาธิป บัวคำภู', id:'673050064-7'},
@@ -374,7 +377,7 @@ const departments = [
     ]
   },
   {
-    name: 'ฝ่ายเทคโนโลยีและประชาสัมพันธ์', icon: '📸', slots: 8,
+    name: 'ฝ่ายเทคโนโลยีและประชาสัมพันธ์', icon: '<i class="fas fa-laptop-code"></i>', slots: 8,
     duties: ['ออกแบบสื่อประชาสัมพันธ์','จัดทำ Google Forms','จัดตั้งกลุ่ม Facebook','จัดทำตราสัญลักษณ์ (Logo) และไอดีการ์ด','บันทึกและตัดต่อวิดีโอสรุปค่าย','ดูแลอุปกรณ์โสตทัศนูปกรณ์'],
     members: [
       {role:'หัวหน้าฝ่าย', name:'ณัฐชยา กลักโพธิ์', id:'673050067-1'},
@@ -383,7 +386,7 @@ const departments = [
     ]
   },
   {
-    name: 'ฝ่ายจัดหาทุน', icon: '💰', slots: 3,
+    name: 'ฝ่ายจัดหาทุน', icon: '<i class="fas fa-hand-holding-usd"></i>', slots: 3,
     duties: ['ดำเนินการจัดทำหนังสือและติดต่อประสานงานกับหน่วยงานต่างๆ','จัดทำกำหนดการค่ายแสงส่องใจ','ดูแลการใช้งานวิทยุสื่อสารภายในค่าย'],
     members: [
       {role:'หัวหน้าฝ่าย', name:'เอื้ออังกูร อุณาพรหม', id:'673050342-5'},
@@ -392,7 +395,7 @@ const departments = [
     ]
   },
   {
-    name: 'ฝ่ายปกครอง', icon: '🛡️', slots: 10,
+    name: 'ฝ่ายปกครอง', icon: '<i class="fas fa-shield-alt"></i>', slots: 10,
     duties: ['จัดทำกฎค่ายและชี้แจงแก่ผู้เข้าร่วม','ควบคุมดูแลความสงบเรียบร้อยและความปลอดภัย','ดูแลด้านจราจรและที่จอดรถ','จัดเวรรักษาความปลอดภัย','นำกล่าวคำบูชาอาหาร'],
     members: [
       {role:'หัวหน้าฝ่าย', name:'กิตติเดช ขอนยาง', id:'673050491-8'},
@@ -400,7 +403,7 @@ const departments = [
     ]
   },
   {
-    name: 'ฝ่ายทะเบียน วัดและประเมินผล', icon: '📋', slots: 4,
+    name: 'ฝ่ายทะเบียน วัดและประเมินผล', icon: '<i class="fas fa-clipboard-list"></i>', slots: 4,
     duties: ['จัดทำแบบฟอร์มและรับลงทะเบียน','จัดทำเกียรติบัตรพี่ค่ายและน้องค่าย','จัดทำแบบประเมินความพึงพอใจ','จัดทำสมุดบันทึกความทรงจำ','จัดทำเล่มสรุปโครงการ'],
     members: [
       {role:'หัวหน้าฝ่าย', name:'รัฐติกุล พันธ์เจริญ', id:'673050075-2'},
@@ -408,7 +411,7 @@ const departments = [
     ]
   },
   {
-    name: 'ฝ่ายประสานงาน', icon: '📡', slots: 5,
+    name: 'ฝ่ายประสานงาน', icon: '<i class="fas fa-handshake"></i>', slots: 5,
     duties: ['ดำเนินการจัดทำหนังสือและติดต่อหน่วยงานต่างๆ','จัดทำกำหนดการค่าย','ดูแลการใช้งานวิทยุสื่อสาร'],
     members: [
       {role:'หัวหน้าฝ่าย', name:'วรัญญา เนียมสำเภา', id:'673050340-9'},
@@ -417,7 +420,7 @@ const departments = [
     ]
   },
   {
-    name: 'ฝ่ายพยาบาล', icon: '🏥', slots: 7,
+    name: 'ฝ่ายพยาบาล', icon: '<i class="fas fa-heartbeat"></i>', slots: 7,
     duties: ['จัดทำแบบสำรวจสุขภาพ','จัดซื้อยาและดูแลสุขภาพสมาชิก','ปฏิบัติงานฉุกเฉินและปฐมพยาบาล'],
     members: [
       {role:'หัวหน้าฝ่าย', name:'ธีระพัฒน์ ชัยบุดดี', id:'673050070-2'},
@@ -425,7 +428,7 @@ const departments = [
     ]
   },
   {
-    name: 'ฝ่ายพิธีการและปฏิคม', icon: '🎤', slots: 4,
+    name: 'ฝ่ายพิธีการและปฏิคม', icon: '<i class="fas fa-microphone"></i>', slots: 4,
     duties: ['พิธีกรดำเนินกิจกรรมพิธีเปิด-ปิด','ดูแลปฏิคมอาจารย์และแขกสำคัญ','จัดดำเนินกิจกรรมพิธีเทียน','ดูแลพิธีทางเทวสัมพันธ์ต่างๆ'],
     members: [
       {role:'หัวหน้าฝ่าย', name:'ณัฐพงษ์ อุ่นโล', id:'673050068-9'},
@@ -433,7 +436,7 @@ const departments = [
     ]
   },
   {
-    name: 'ฝ่ายสถานที่', icon: '🏗️', slots: 21,
+    name: 'ฝ่ายสถานที่', icon: '<i class="fas fa-building"></i>', slots: 21,
     duties: ['จัดเตรียมวัสดุอุปกรณ์','ดูแลห้องประชุม ห้องนอน ห้องน้ำ','จัดพื้นที่ทำกิจกรรม','จัดพื้นที่พิธีเปิด-ปิด','ดูแลความเรียบร้อยของสถานที่'],
     members: [
       {role:'หัวหน้าฝ่าย', name:'ศุภกร บุตรเพ็ง', id:'673050077-8'},
@@ -443,7 +446,7 @@ const departments = [
     ]
   },
   {
-    name: 'ฝ่ายอาหารและสวัสดิการ', icon: '🍽️', slots: 19,
+    name: 'ฝ่ายอาหารและสวัสดิการ', icon: '<i class="fas fa-utensils"></i>', slots: 19,
     duties: ['จัดเตรียมอาหารและน้ำดื่มอย่างตรงเวลา','ควบคุมคุณภาพอาหารให้สะอาดถูกสุขลักษณะ','ควบคุมงบประมาณด้านอาหาร'],
     members: [
       {role:'หัวหน้าฝ่าย', name:'อนันยช ไขลำเมา', id:'673050081-7'},
@@ -459,7 +462,7 @@ const container = document.getElementById('departmentsContainer');
 departments.forEach(dept => {
   const title = document.createElement('div');
   title.className = 'dept-section-title reveal';
-  title.textContent = dept.icon + ' ' + dept.name;
+  title.innerHTML = dept.icon + ' ' + dept.name;
   container.appendChild(title);
 
   const row = document.createElement('div');
