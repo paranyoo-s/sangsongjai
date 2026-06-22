@@ -778,7 +778,7 @@ section { padding: 80px 5%; }
 
 <!-- NAV -->
 <nav id="mainNav">
-  <a href="index.html" class="nav-logo">
+  <a href="./" class="nav-logo">
     <img src="pic/logossj15.png" alt="Logo" class="logo-icon">
     <span>แสงส่องใจ<small>ครั้งที่ 15</small></span>
   </a>
@@ -788,9 +788,9 @@ section { padding: 80px 5%; }
     <li><a href="#registration">สมัครพี่ค่าย</a></li>
     <li><a href="#team">กรรมการค่าย</a></li>
     <li><a href="#history">ทำเนียบค่าย</a></li>
-    <li><a href="register.html" class="nav-cta nav-cta-mobile">สมัครเลย</a></li>
+    <li><a href="register/" class="nav-cta nav-cta-mobile">สมัครเลย</a></li>
   </ul>
-  <a href="register.html" class="nav-cta nav-cta-desktop">สมัครเลย</a>
+  <a href="register/" class="nav-cta nav-cta-desktop">สมัครเลย</a>
   <div class="hamburger" id="hamburger" onclick="toggleNav()">
     <span></span><span></span><span></span>
   </div>
@@ -845,7 +845,7 @@ section { padding: 80px 5%; }
           </div>
           <div class="info-row">
             <span class="icon"><i class="fa-solid fa-coins" style="color: #ffffff;"></i></span>
-            <div class="text">ค่าสมัคร 499 บาท (พี่ค่าย)<strong>ค่าใช้จ่าย</strong></div>
+            <div class="text">ค่าสมัคร 480 บาท (พี่ค่าย)<strong>ค่าใช้จ่าย</strong></div>
           </div>
         </div>
       </img>
@@ -991,7 +991,7 @@ section { padding: 80px 5%; }
   <div class="section-header reveal">
     <span class="section-tag orange">รับสมัครพี่ค่าย</span>
     <h2 class="section-title">เปิดรับสมัคร 11 ฝ่าย</h2>
-    <p class="section-desc">กดที่แต่ละฝ่ายเพื่อดูหน้าที่รับผิดชอบและจำนวนที่รับ</p>
+    <p class="section-desc">กดที่แต่ละฝ่ายเพื่อดูหน้าที่รับผิดชอบ</p>
   </div>
 
   <div class="dept-grid" id="deptGrid">
@@ -1001,14 +1001,13 @@ section { padding: 80px 5%; }
   <div class="reg-cta reveal">
     <div class="reg-cta-text">
       <h3>พร้อมเป็นส่วนหนึ่งของค่ายแสงส่องใจ?</h3>
-      <p>สมัครได้เลย ผ่านระบบออนไลน์ รับจำนวนจำกัด!</p>
+      <p>สมัครได้เลย ผ่านระบบออนไลน์</p>
     </div>
     <div class="reg-cta-details">
-      <div class="reg-detail"><span class="val">499฿</span><span class="key">ค่าสมัคร</span></div>
-      <div class="reg-detail"><span class="val">150</span><span class="key">รับทั้งหมด</span></div>
+      <div class="reg-detail"><span class="val">480฿</span><span class="key">ค่าสมัคร</span></div>
       <div class="reg-detail"><span class="val">11</span><span class="key">ฝ่าย</span></div>
     </div>
-    <a href="register.html" class="btn-primary">สมัครเลย →</a>
+    <a href="register/" class="btn-primary">สมัครเลย →</a>
   </div>
 </section>
 
@@ -1054,7 +1053,7 @@ section { padding: 80px 5%; }
       </div>
     </div>
     <div class="team-action reveal">
-      <a href="team.html" class="btn-secondary">ดูฝ่ายอื่น ๆ เพิ่มเติม</a>
+      <a href="team/" class="btn-secondary">ดูฝ่ายอื่น ๆ เพิ่มเติม</a>
     </div>
   </div>
 </section>
@@ -1096,7 +1095,7 @@ section { padding: 80px 5%; }
       <div class="social-links">
         <a href="https://www.facebook.com/profile.php?id=100092714082545" target="_blank" class="social-link"><i class="fa-brands fa-square-facebook"></i> Facebook Fanpage</a>
         <a href="https://www.instagram.com/sangsongjai14_kku" target="_blank" class="social-link"><i class="fa-brands fa-instagram"></i> Instagram</a>
-        <a href="register.html" class="social-link"><i class="fas fa-edit"></i> ระบบรับสมัครพี่ค่าย</a>
+        <a href="register/" class="social-link"><i class="fas fa-edit"></i> ระบบรับสมัครพี่ค่าย</a>
       </div>
     </div>
     <div class="contact-item">
@@ -1237,10 +1236,7 @@ departments.forEach((dept, i) => {
         <span class="dept-icon">${dept.icon}</span>
         <span class="dept-name">${dept.name}</span>
       </div>
-      <div class="dept-slots">
-        <span class="slot-badge">รับ ${dept.slots} คน</span>
-        <div class="expand-btn">▼</div>
-      </div>
+      <div class="expand-btn">▼</div>
     </div>
   `;
   deptGrid.appendChild(card);
@@ -1388,9 +1384,6 @@ function openDeptModal(i) {
   const dept = departments[i];
   document.getElementById('modalTitle').innerHTML = `${dept.icon} ${dept.name}`;
   document.getElementById('modalContent').innerHTML = `
-    <div style="display:inline-flex;align-items:center;gap:8px;background:#fed7aa;color:#c2410c;padding:5px 14px;border-radius:50px;font-size:0.8rem;font-weight:700;margin-bottom:16px;">
-      รับสมัคร ${dept.slots} คน
-    </div>
     <h3>หน้าที่รับผิดชอบ</h3>
     <ul class="duty-list" style="margin-bottom:20px;">
       ${dept.duties.map(d => `<li>${d}</li>`).join('')}
@@ -1406,7 +1399,7 @@ function openDeptModal(i) {
       </div>
     `).join('')}
     <div style="margin-top:20px;">
-      <a href="register.html"
+      <a href="register/"
          style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#f97316,#c2410c);color:white;padding:12px 24px;border-radius:12px;text-decoration:none;font-weight:700;font-size:0.95rem;margin-top:8px;">
         สมัครฝ่ายนี้ →
       </a>
