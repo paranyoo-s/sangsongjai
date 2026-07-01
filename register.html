@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="th">
 <head>
   <meta charset="UTF-8" />
@@ -346,6 +346,13 @@
         </div>
       </div>
 
+      <div class="form-row full">
+        <div class="field">
+          <label>รหัสนักศึกษา <span class="req">*</span></label>
+          <input type="text" id="studentId" placeholder="653020123-4" inputmode="numeric" />
+        </div>
+      </div>
+
       <div class="form-row">
         <div class="field">
           <label>ชื่อเล่น (ไม่เอ้)<span class="req">*</span></label>
@@ -518,6 +525,7 @@
     const fields = [
       { id: 'prefix',   label: 'คำนำหน้า' },
       { id: 'fullname', label: 'ชื่อ-สกุล' },
+      { id: 'studentId', label: 'รหัสนักศึกษา' },
       { id: 'nickname', label: 'ชื่อเล่น' },
       { id: 'phone',    label: 'เบอร์โทร' },
       { id: 'email',    label: 'อีเมล' },
@@ -544,6 +552,7 @@
 
     document.getElementById('modalSummary').innerHTML =
       `<strong>ชื่อ-สกุล:</strong> ${v('prefix')}${v('fullname')}<br>
+       <strong>รหัสนักศึกษา:</strong> ${v('studentId')}<br>
        <strong>ชื่อเล่น:</strong> ${v('nickname')}<br>
        <strong>ชั้นปี:</strong> ${v('year')} | <strong>วิชาเอก:</strong> ${v('major')}<br>
        <strong>เบอร์โทร:</strong> ${phoneValue}<br>
@@ -572,6 +581,7 @@
     const data = {
       prefix:   v('prefix'),
       fullname: v('fullname'),
+      studentId: v('studentId'),
       nickname: v('nickname'),
       phone:    '="' + phoneValue + '"',
       email:    v('email'),
