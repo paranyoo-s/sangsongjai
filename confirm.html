@@ -415,7 +415,7 @@
       <div class="alert" id="login-error"></div>
       <div class="field">
         <label>รหัสนักศึกษา <span class="req">*</span></label>
-        <input type="text" id="input-sid" inputmode="numeric" placeholder="เช่น 673050XXX-X" />
+        <input type="text" id="input-sid" inputmode="text" placeholder="เช่น 673050XXX-X" />
       </div>
       <button class="btn-submit" id="btn-login"><i class="fa-solid fa-magnifying-glass"></i> ค้นหาข้อมูล</button>
     </div>
@@ -637,9 +637,9 @@ let currentSid = "";
 let currentProfile = null;
 let currentFbLink = DEFAULT_FB_LINK;
 
-function setFbLink(elId, link) {
+function setFbLink(elId) {
   const el = document.getElementById(elId);
-  el.href = (link && link.trim()) ? link.trim() : DEFAULT_FB_LINK;
+  el.href = DEFAULT_FB_LINK;
 }
 
 /* ---------- helpers ---------- */
@@ -743,7 +743,7 @@ document.getElementById("btn-login").addEventListener("click", () => {
       }
       currentSid = sid;
       currentProfile = res.data;
-      currentFbLink = res.data["ลิงก์ Facebook"] || DEFAULT_FB_LINK;
+      currentFbLink = DEFAULT_FB_LINK;
 
       if (res.data["การตอบรับ"] && res.data["การตอบรับ"].trim() !== "") {
         showStatusScreen(res.data["การตอบรับ"]);
@@ -791,7 +791,7 @@ function showStatusScreen(status) {
     title.textContent = "คุณได้ยืนยันสิทธิ์ไปแล้ว";
     sub.textContent = "คุณได้ยืนยันสิทธิ์การเป็นพี่ค่ายแสงส่องใจ ครั้งที่ 15 เรียบร้อยแล้ว";
     fbBtn.style.display = "inline-flex";
-    setFbLink("status-fb-btn", currentFbLink);
+    setFbLink("status-fb-btn");
   }
   setStep(3);
   show("screen-status");
@@ -917,7 +917,7 @@ document.getElementById("btn-submit").addEventListener("click", () => {
             return;
           }
           setStep(3);
-          setFbLink("done-fb-btn", currentFbLink);
+          setFbLink("done-fb-btn");
           show("screen-done");
         })
         .catch(() => {
